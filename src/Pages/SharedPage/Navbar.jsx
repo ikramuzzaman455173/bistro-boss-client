@@ -1,14 +1,29 @@
-import React from 'react'
-import {Link } from "react-router-dom";
+import { useContext } from 'react'
+import { Link } from "react-router-dom";
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import {FaShoppingCart} from "react-icons/fa";
+import useCart from '../../Hooks/UseCart';
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext)
+  const [cart] = useCart()
+  // console.log('cart',cart);
+  const handleLogout = () => {
+    return logOut()
+  }
   const navItems = (<>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/menu">Our Menu</Link></li>
     <li><Link to="/order/salad">Our Food</Link></li>
+    <li><Link>
+      <button className="flex items-center gap-2 relative">
+      <FaShoppingCart className='text-2xl' />
+        <div className="badge text-[17px] text-white absolute -top-2 left-2">+{cart?.length||0}</div>
+      </button>
+    </Link></li>
+    {user ? <><li><Link onClick={handleLogout}>logout</Link></li></> : <><li><Link to="/login">login</Link></li></>}
   </>)
   return (
     <>
-
       <div className="navbar fixed z-10 bg-opacity-30 bg-black text-white max-w-screen-xl">
         <div className="navbar-start">
           <div className="dropdown">

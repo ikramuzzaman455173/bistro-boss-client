@@ -9,8 +9,8 @@ import { Helmet } from 'react-helmet-async';
 import OrderTab from '../../Components/OrderTab';
 const Order = () => {
   const { category } = useParams()
-  const categories = ['salad','pizza','soup', 'dessert','drinks','offered']
-  const initialIndex=categories.indexOf(category)
+  const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks', 'offered']
+  const initialIndex = categories.indexOf(category)
   const [menu] = UseMenu()
   const salad = menu.filter(item => item.category === 'salad')
   // console.log(salad);
@@ -30,31 +30,33 @@ const Order = () => {
 
   return (
     <div>
-        <Helmet>
+      <Helmet>
         <title>Bistro Boss || Order Page</title>
       </Helmet>
       <Cover img={OrderImg} title={"Order Food"} />
       <Tabs defaultIndex={initialIndex} onSelect={(index) => console.log(index)}>
-        <TabList className='my-10'>
-          <Tab>Salad</Tab>
-          <Tab>Pizza</Tab>
-          <Tab>Soup</Tab>
-          <Tab>Dessert</Tab>
-          <Tab>Drinks</Tab>
-          <Tab>Offered</Tab>
-        </TabList>
+        <div className='flex items-center flex-col'>
+          <TabList className='my-10'>
+            <Tab>Salad</Tab>
+            <Tab>Pizza</Tab>
+            <Tab>Soup</Tab>
+            <Tab>Dessert</Tab>
+            <Tab>Drinks</Tab>
+            <Tab>Offered</Tab>
+          </TabList>
+        </div>
         <TabPanel>
           {/* <div className='grid md:mx-0 mx-auto gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
           {salad?.map((item) => <FoodCard item={item} key={item._id} />)}
           </div> */}
-          <OrderTab items={salad}/>
+          <OrderTab items={salad} />
         </TabPanel>
 
         <TabPanel>
           {/* <div className='grid md:mx-0 mx-auto gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
           {pizza?.map((item) => <FoodCard item={item} key={item._id} />)}
           </div> */}
-          <OrderTab items={pizza}/>
+          <OrderTab items={pizza} />
         </TabPanel>
 
 
@@ -62,28 +64,28 @@ const Order = () => {
           {/* <div className='grid md:mx-0 mx-auto gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
           {soup?.map((item) => <FoodCard item={item} key={item._id} />)}
           </div> */}
-          <OrderTab items={soup}/>
+          <OrderTab items={soup} />
         </TabPanel>
 
         <TabPanel>
           {/* <div className='grid md:mx-0 mx-auto gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
           {dessert?.map((item) => <FoodCard item={item} key={item._id} />)}
           </div> */}
-          <OrderTab items={dessert}/>
+          <OrderTab items={dessert} />
         </TabPanel>
 
         <TabPanel>
           {/* <div className='grid md:mx-0 mx-auto gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
           {drinks?.map((item) => <FoodCard item={item} key={item._id} />)}
           </div> */}
-          <OrderTab items={drinks}/>
+          <OrderTab items={drinks} />
         </TabPanel>
 
         <TabPanel>
           {/* <div className='grid md:mx-0 mx-auto gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
           {offered?.map((item) => <FoodCard item={item} key={item._id} />)}
           </div> */}
-          <OrderTab items={offered}/>
+          <OrderTab items={offered} />
         </TabPanel>
 
 

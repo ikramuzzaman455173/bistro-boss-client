@@ -7,7 +7,7 @@ const UseMenu = () => {
     fetch('http://localhost:4000/menu')
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         // const popularItems = data.filter(popular => popular.category === 'popular')
         // console.log(popularItems);
         setMenu(data)

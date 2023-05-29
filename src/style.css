@@ -1,3 +1,12 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing:border-box;
+  text-transform: capitalize;
+}
+body{
+  overflow-x:hidden;
+}
 .featured-bg{
   background-image: url(../src/assets/home/featured.jpg);
 }
