@@ -41,14 +41,7 @@ const DashboardLayout = () => {
 
               </>}
 
-
-
             <div className="divider"></div>
-
-
-
-
-
 
             <li><NavLink to='/'><FaHome /> Home</NavLink></li>
             <li><NavLink to="/menu"><FaBars /> Menu</NavLink></li>
