@@ -12,7 +12,7 @@ const Register = () => {
   const onSubmit = data => {
     createUser(data.email, data.password)
     .then(result => {
-      console.log(result.user);
+      // console.log(result.user);
       updateUserProfile(data.name, data.photoUrl)
         .then(() => {
           const saveUser={name:data.name,email:data.email}
@@ -26,9 +26,9 @@ const Register = () => {
                 .then(response => response.json())
                 .then(data => {
                   if (data.insertedId) {
-                    console.log(data)
+                    // console.log(data)
                     toast('Register Account Successfully !!!',{autoClose:2000})
-                    console.log('user profile info updated');
+                    // console.log('user profile info updated');
                   }
                 }).catch(error=>console.log(`404 page not found ${error.message}`))
             })

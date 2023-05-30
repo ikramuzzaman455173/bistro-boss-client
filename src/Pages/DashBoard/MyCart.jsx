@@ -5,12 +5,12 @@ import Swal from 'sweetalert2';
 
 const MyCart = () => {
   const [cart,refetch] = useCart()
-  console.log(cart);
+  // console.log(cart);
   const total = cart.reduce((sum, item) => item.price + sum, 0)
-  console.log(total);
+  // console.log(total);
 
   const handleDeleteCartItem = (id) => {
-    console.log(`handleDeleteCartItem`, id)
+    // console.log(`handleDeleteCartItem`, id)
 
     Swal.fire({
       title: 'Are you sure?',
@@ -32,7 +32,7 @@ const MyCart = () => {
           .then(response => response.json())
           .then(data => {
             if (data.deletedCount > 0)
-              console.log(data)
+              // console.log(data)
             Swal.fire(
               'Deleted!',
               'Your menu item been deleted.',

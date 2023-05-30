@@ -32,7 +32,7 @@ const FoodCard = ({ item }) => {
                             showConfirmButton: false,
                             timer: 1500
                         })
-                        console.log(data);
+                        // console.log(data);
                     }
                 }).catch(error => console.log(`404 page not found ${error.message}`))
         }

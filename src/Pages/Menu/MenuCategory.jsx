@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Cover from '../SharedPage/Cover';
 import MenuItemCard from '../Home/MenuItemCard';
 const MenuCategory = ({ items, title, image }) => {
-  console.log(items);
+  // console.log(items);
   return (
     <div className='pt-8'>
     { title && <Cover img={image} title={title}></Cover>}

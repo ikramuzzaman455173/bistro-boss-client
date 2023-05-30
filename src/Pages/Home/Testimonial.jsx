@@ -13,7 +13,7 @@ const Testimonial = () => {
     fetch(`http://localhost:4000/reviews`)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         setReviews(data);
       })
       .catch(error => console.log(`404 page not found ${error}`));

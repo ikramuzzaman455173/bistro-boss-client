@@ -10,7 +10,7 @@ const AllUsers = () => {
   })
 
   const handleMakeAdmin = (id) => {
-    console.log(`handleMakeAdmin`, id)
+    // console.log(`handleMakeAdmin`, id)
 
     Swal.fire({
       title: 'Are you sure?',
@@ -28,7 +28,7 @@ const AllUsers = () => {
         })
           .then(response => response.json())
           .then(data => {
-            console.log(data);
+            // console.log(data);
             if (data.modifiedCount) {
               Swal.fire(
                 'Updated',
@@ -43,7 +43,7 @@ const AllUsers = () => {
   }
 
   const handleDeleteUser = (id) => {
-    console.log(`handleDeleteUser`, id)
+    // console.log(`handleDeleteUser`, id)
 
     Swal.fire({
       title: 'Are you sure?',
@@ -62,7 +62,7 @@ const AllUsers = () => {
           .then(response => response.json())
           .then(data => {
             if (data.deletedCount > 0) {
-              console.log(data);
+              // console.log(data);
               Swal.fire(
                 'Deleted',
                 'User Has Been Deleted',
