@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 
 const AllUsers = () => {
   const { data: users = [], refetch } = useQuery(['users'], async () => {
-    const res = await fetch(`http://localhost:4000/users`)
+    const res = await fetch(`https://bistro-boss-server-eight-inky.vercel.app/users`)
     return res.json()
   })
 
@@ -23,7 +23,7 @@ const AllUsers = () => {
       confirmButtonText: 'Yes, User Role Update It!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/users/admin/${id}`, {
+        fetch(`https://bistro-boss-server-eight-inky.vercel.app/users/admin/${id}`, {
           method: "PATCH"
         })
           .then(response => response.json())
@@ -56,7 +56,7 @@ const AllUsers = () => {
       confirmButtonText: 'Delete the user!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/users/${id}`, {
+        fetch(`https://bistro-boss-server-eight-inky.vercel.app/users/${id}`, {
           method: "DELETE"
         })
           .then(response => response.json())

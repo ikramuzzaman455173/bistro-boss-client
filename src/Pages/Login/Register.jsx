@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef, useContext } from 'react'
-import {toast} from "react-toastify";
-import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import SocialLogin from '../SharedPage/SocialLogin';
 const Register = () => {
   const [showPass, setShowPass] = useState('')
@@ -16,7 +16,7 @@ const Register = () => {
       updateUserProfile(data.name, data.photoUrl)
         .then(() => {
           const saveUser={name:data.name,email:data.email}
-            fetch(`http://localhost:4000/users`, {
+          fetch(`https://bistro-boss-server-eight-inky.vercel.app/users`, {
                 method: "POST",
                 headers: {
                   'content-type':'application/json'

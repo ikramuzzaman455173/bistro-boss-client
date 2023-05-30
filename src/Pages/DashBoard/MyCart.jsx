@@ -1,7 +1,7 @@
-import React from 'react'
-import useCart from '../../Hooks/UseCart'
+import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import useCart from '../../Hooks/UseCart';
 
 const MyCart = () => {
   const [cart,refetch] = useCart()
@@ -22,7 +22,7 @@ const MyCart = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/carts/${id}`, {
+        fetch(`https://bistro-boss-server-eight-inky.vercel.app/carts/${id}`, {
           method: "DELETE",
           headers: {
             'content-type': 'application/json'

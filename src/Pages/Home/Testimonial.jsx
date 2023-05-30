@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import SectionTitle from '../../Components/SectionTitle';
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation,Autoplay} from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SectionTitle from '../../Components/SectionTitle';
 import ReviewCard from './ReviewCard';
 
 const Testimonial = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/reviews`)
+    fetch(`https://bistro-boss-server-eight-inky.vercel.app/reviews`)
       .then(response => response.json())
       .then(data => {
         // console.log(data);

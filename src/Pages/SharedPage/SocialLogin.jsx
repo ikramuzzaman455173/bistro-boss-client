@@ -1,8 +1,7 @@
 import React, { useContext } from 'react'
 import { FaGoogle } from 'react-icons/fa'
-import { AuthContext } from '../../AuthProvider/AuthProvider'
-import { toast } from 'react-toastify'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../AuthProvider/AuthProvider'
 
 const SocialLogin = () => {
   const { googleSignIn } = useContext(AuthContext)
@@ -14,7 +13,7 @@ const SocialLogin = () => {
       .then((result) => {
         const logedUser=result.user
         const saveUser={name:logedUser.displayName,email:logedUser.email}
-        fetch(`http://localhost:4000/users`, {
+        fetch(`https://bistro-boss-server-eight-inky.vercel.app/users`, {
             method: "POST",
             headers: {
               'content-type':'application/json'
