@@ -4,6 +4,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet-async';
+import SocialLogin from '../SharedPage/SocialLogin';
 const Register = () => {
   const [showPass, setShowPass] = useState('')
   const { createUser,updateUserProfile } = useContext(AuthContext)
@@ -13,17 +14,26 @@ const Register = () => {
     .then(result => {
       console.log(result.user);
       updateUserProfile(data.name, data.photoUrl)
-      .then(() => {
-              console.log('user profile info updated');
-            }).catch(error => {
-              console.log(`Error:`,error.message);
+        .then(() => {
+          const saveUser={name:data.name,email:data.email}
+            fetch(`http://localhost:4000/users`, {
+                method: "POST",
+                headers: {
+                  'content-type':'application/json'
+                },
+                body:JSON.stringify(saveUser)
+              })
+                .then(response => response.json())
+                .then(data => {
+                  if (data.insertedId) {
+                    console.log(data)
+                    toast('Register Account Successfully !!!',{autoClose:2000})
+                    console.log('user profile info updated');
+                  }
+                }).catch(error=>console.log(`404 page not found ${error.message}`))
             })
-      
-      toast('Register Account Successfully !!!',{autoClose:2000})
-      console.log(data);
-          }).catch(error => {
-            console.log(`Error:`,error.message);
           })
+
     reset(); // Reset the form after submission
   };
 
@@ -61,13 +71,6 @@ const Register = () => {
               </div>
 
 
-
-
-
-
-
-
-
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -91,14 +94,11 @@ const Register = () => {
                 </label>
               </div>
 
-
-
-
-
               <div className="form-control mt-6">
                 <input type='submit' className="btn btn-primary" value="register" />
               </div>
               <p className='text-center'><small>Already Have An Account Please? <Link className='text-blue-500 font-bold' to="/login">login now!!!</Link></small></p>
+          <SocialLogin/>
             </form>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { toast } from 'react-toastify';
+import SocialLogin from '../SharedPage/SocialLogin';
 const Login = () => {
   const [showPass, setShowPass] = useState('')
   const [disabled, setDisabled] = useState(true)
@@ -95,6 +96,7 @@ const Login = () => {
                 <button type='submit' disabled={disabled ? false : ''} className="btn btn-primary">Login</button>
               </div>
               <p className='text-center'><small>New Here? <Link className='text-blue-500 font-bold' to="/register">Create An Account!!!</Link></small></p>
+              <SocialLogin/>
             </form>
           </div>
         </div>

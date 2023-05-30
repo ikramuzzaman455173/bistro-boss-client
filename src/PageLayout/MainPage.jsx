@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 const MainPage = () => {
   const location = useLocation()
-  const noHeaderFooter = location.pathname.includes('login') || location.pathname.includes('register')
+  const noHeaderFooter = location.pathname.includes('logins') || location.pathname.includes('register')
   // const noHeaderFooterRegister=location.pathname.includes('register')
   const [isLoading, setIsLoading] = useState(true);
   const [elapsedTime, setElapsedTime] = useState(0);
