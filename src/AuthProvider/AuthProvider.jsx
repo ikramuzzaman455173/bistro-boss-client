@@ -1,7 +1,7 @@
-import React, { createContext, useState, useEffect } from 'react'
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import app from '../Firebase/firebase-init';
 import axios from "axios";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import React, { createContext, useEffect, useState } from 'react';
+import app from '../Firebase/firebase-init';
 const auth = getAuth(app)
 export const AuthContext = createContext(null)
 const googleProvider = new GoogleAuthProvider();
@@ -37,9 +37,9 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser)
       // console.log('currentUser',currentUser);
       if (currentUser) {
-        axios.post('http://localhost:4000/jwt', { email: currentUser.email })
+        axios.post('https://bistro-boss-server-eight-inky.vercel.app/jwt', { email: currentUser.email })
           .then(data => {
-            console.log(data.data.token);
+            // console.log(data.data.token);
             localStorage.setItem('access-token', data.data.token)
             setLoading(false)
           }).catch(error => {

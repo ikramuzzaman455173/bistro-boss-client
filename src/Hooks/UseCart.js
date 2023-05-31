@@ -10,8 +10,8 @@ const useCart = () => {
     queryKey: ['cart', user?.email],
     enabled: !loading && !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
-      const response = await axiosSecure(`http://localhost:4000/carts?email=${user?.email}`)
-      console.log("response from axios",response.data);
+      const response = await axiosSecure(`https://bistro-boss-server-eight-inky.vercel.app/carts?email=${user?.email}`)
+      // console.log("response from axios",response.data);
       return response.data
     },
   })
