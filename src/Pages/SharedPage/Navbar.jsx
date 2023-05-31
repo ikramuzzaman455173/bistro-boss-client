@@ -14,12 +14,12 @@ const Navbar = () => {
     <li><Link to="/">Home</Link></li>
     <li><Link to="/menu">Our Menu</Link></li>
     <li><Link to="/order/salad">Our Food</Link></li>
-    <li><Link>
-      <button className="flex items-center gap-2 relative">
+    <li><div>
+      <Link to="/dashboard/mycart" className="flex items-center gap-2 relative">
         <FaShoppingCart className='text-2xl' />
         <div className="badge text-[17px] text-white absolute -top-2 left-2">+{cart?.length || 0}</div>
-      </button>
-    </Link></li>
+      </Link>
+    </div></li>
     {user ? <>
       <li><Link onClick={handleLogout}>logout</Link></li>
       <li><Link to="/dashboard">your dashboard</Link></li>

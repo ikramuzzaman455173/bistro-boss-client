@@ -2,11 +2,13 @@ import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import { FaTrashAlt, FaUserShield } from 'react-icons/fa'
 import Swal from 'sweetalert2'
+import useAxiosSecure from '../../Hooks/UseAxiosSecures'
 
 const AllUsers = () => {
+  const [axiosSecure]=useAxiosSecure()
   const { data: users = [], refetch } = useQuery(['users'], async () => {
-    const res = await fetch(`http://localhost:4000/users`)
-    return res.json()
+    const res = await axiosSecure.get(`/users`)
+    return res.data
   })
 
   const handleMakeAdmin = (id) => {
@@ -81,7 +83,7 @@ const AllUsers = () => {
 
 
       <div className="w-full overflow-x-auto my-5">
-        <table className="w-full text-left border border-separate rounded border-slate-200" cellspacing="0">
+        <table className="w-full text-left border border-separate rounded border-slate-200">
           <tbody>
             <tr>
               <th scope="col" className="h-12 px-6 text-sm font-medium text-center border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">No</th>

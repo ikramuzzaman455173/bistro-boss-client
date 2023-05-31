@@ -2,11 +2,15 @@ import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { FaBars, FaCalendarAlt, FaHome, FaShoppingBag, FaShoppingCart, FaWallet,FaUtensils, FaBook, FaUsers } from "react-icons/fa";
 import useCart from '../Hooks/UseCart';
+import UseAdmin from '../Hooks/UseAdmin';
 const DashboardLayout = () => {
   const [cart] = useCart()
 
   // todo:load data from the server to have dynamic isAdmin based on date
-  const isAdmin = true
+  // const isAdmin = true
+  const [isAdmin] = UseAdmin()
+  const isAdmins=isAdmin?.admin
+  console.log(isAdmins,'admin');
   return (
     <div>
 
@@ -22,7 +26,7 @@ const DashboardLayout = () => {
           <ul id="sidebar" className="menu p-4 w-80 ">
             {/* <!-- Sidebar content here --> */}
 
-            {isAdmin ?
+            {isAdmins ?
               <>
                 <li><NavLink><FaHome /> admin home</NavLink></li>
                 <li><NavLink to="/dashboard/reservations"><FaUtensils /> add items</NavLink></li>
