@@ -3,6 +3,8 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { FaBars, FaCalendarAlt, FaHome, FaShoppingBag, FaShoppingCart, FaWallet,FaUtensils, FaBook, FaUsers } from "react-icons/fa";
 import useCart from '../Hooks/UseCart';
 import UseAdmin from '../Hooks/UseAdmin';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const DashboardLayout = () => {
   const [cart] = useCart()
 
@@ -29,8 +31,8 @@ const DashboardLayout = () => {
             {isAdmins ?
               <>
                 <li><NavLink><FaHome /> admin home</NavLink></li>
-                <li><NavLink to="/dashboard/reservations"><FaUtensils /> add items</NavLink></li>
-                <li><NavLink to="/dashboard/paymentHistory"><FaBars /> manage items</NavLink></li>
+                <li><NavLink to="/dashboard/addItem"><FaUtensils /> add items</NavLink></li>
+                <li><NavLink to="/dashboard/manageItems"><FaBars /> manage items</NavLink></li>
                 <li><NavLink to="/dashboard/paymentHistory"><FaBook /> manage bookings</NavLink></li>
                 <li><NavLink to="/dashboard/allusers"><FaUsers /> all users</NavLink></li>
               </>
@@ -42,7 +44,6 @@ const DashboardLayout = () => {
                 <li><NavLink to="/dashboard/mycart"><FaShoppingCart /> My Cart
                   <span className="badge text-[17px] text-white absolute -top-2 left-2">+{cart?.length || 0}</span>
                 </NavLink></li>
-
               </>}
 
             <div className="divider"></div>
@@ -55,6 +56,7 @@ const DashboardLayout = () => {
 
         </div>
       </div>
+      <ToastContainer/>
     </div>
   )
 }
