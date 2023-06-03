@@ -11,8 +11,8 @@ const DashboardLayout = () => {
   // todo:load data from the server to have dynamic isAdmin based on date
   // const isAdmin = true
   const [isAdmin] = UseAdmin()
-  const isAdmins=isAdmin?.admin
-  console.log(isAdmins,'admin');
+  // const isAdmins=isAdmin?.admin
+  console.log(isAdmin,'admin');
   return (
     <div>
 
@@ -28,9 +28,9 @@ const DashboardLayout = () => {
           <ul id="sidebar" className="menu p-4 w-80 ">
             {/* <!-- Sidebar content here --> */}
 
-            {isAdmins ?
+            {isAdmin ?
               <>
-                <li><NavLink><FaHome /> admin home</NavLink></li>
+                <li><NavLink to="/dashboard/adminHome"><FaHome /> admin home</NavLink></li>
                 <li><NavLink to="/dashboard/addItem"><FaUtensils /> add items</NavLink></li>
                 <li><NavLink to="/dashboard/manageItems"><FaBars /> manage items</NavLink></li>
                 <li><NavLink to="/dashboard/paymentHistory"><FaBook /> manage bookings</NavLink></li>
@@ -38,9 +38,10 @@ const DashboardLayout = () => {
               </>
               :
               <>
-                <li><NavLink><FaHome /> user home</NavLink></li>
+                <li><NavLink to="/dashboard/userHome"><FaHome /> user home</NavLink></li>
                 <li><NavLink to="/dashboard/reservations"><FaCalendarAlt /> reservations</NavLink></li>
                 <li><NavLink to="/dashboard/paymentHistory"><FaWallet /> payment history</NavLink></li>
+                <li><NavLink to="/dashboard/payment"><FaWallet /> payment</NavLink></li>
                 <li><NavLink to="/dashboard/mycart"><FaShoppingCart /> My Cart
                   <span className="badge text-[17px] text-white absolute -top-2 left-2">+{cart?.length || 0}</span>
                 </NavLink></li>

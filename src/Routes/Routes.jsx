@@ -12,6 +12,9 @@ import PrivateRoute from './PrivateRoute'
 import AddItem from '../Pages/DashBoard/AddItem'
 import AdminRoute from './AdminRoute'
 import ManageItems from '../Pages/DashBoard/ManageItems'
+import Payment from '../Pages/DashBoard/Payment'
+import UserHome from '../Pages/DashBoard/UserHome'
+import AdminHome from '../Pages/DashBoard/AdminHome'
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -19,23 +22,23 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element:<Home/>
+        element: <Home />
       },
       {
         path: '/menu',
-        element:<MenuPage/>
+        element: <MenuPage />
       },
       {
         path: 'order/:category',
-        element:<Order/>
+        element: <Order />
       },
       {
         path: '/login',
-        element:<Login/>
+        element: <Login />
       },
       {
         path: '/register',
-        element:<Register/>
+        element: <Register />
       },
     ]
   },
@@ -44,20 +47,33 @@ export const router = createBrowserRouter([
     element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
       {
+        path: 'userHome',
+        element: <UserHome />
+      },
+      {
         path: 'mycart',
-        element:<PrivateRoute><MyCart/></PrivateRoute>
+        element: <PrivateRoute><MyCart /></PrivateRoute>
+      },
+      //admin route part starts
+      {
+        path: 'adminHome',
+        element:<AdminRoute><AdminHome /></AdminRoute>
       },
       {
         path: 'allusers',
-        element:<AdminRoute><AllUsers/></AdminRoute>
+        element: <AdminRoute><AllUsers /></AdminRoute>
       },
       {
         path: 'addItem',
-        element:<AdminRoute><AddItem/></AdminRoute>
+        element: <AdminRoute><AddItem /></AdminRoute>
       },
       {
         path: 'manageItems',
-        element:<AdminRoute><ManageItems/></AdminRoute>
+        element: <AdminRoute><ManageItems /></AdminRoute>
+      },
+      {
+        path: 'payment',
+        element: <Payment />
       }
     ]
   }
