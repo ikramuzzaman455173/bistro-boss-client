@@ -24,10 +24,6 @@ const CheckOutForm = ({ price,cart }) => {
 
 
 
-
-
-
-
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (!stripe || !elements) {
@@ -81,7 +77,7 @@ const CheckOutForm = ({ price,cart }) => {
         menuItems:cart.map(item=>item.menuItemId),
         itemsName:cart.map(item=>item.name)
       }
-      axiosSecure.post('/payments', { payment })
+      axiosSecure.post('/payments',{payment})
         .then(res => {
           if (res.data.insertResult.insertedId) {
             console.log(res.data);
