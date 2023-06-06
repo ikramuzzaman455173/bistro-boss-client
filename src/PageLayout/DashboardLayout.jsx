@@ -12,7 +12,7 @@ const DashboardLayout = () => {
   // const isAdmin = true
   const [isAdmin] = UseAdmin()
   // const isAdmins=isAdmin?.admin
-  console.log(isAdmin,'admin');
+  // console.log(isAdmin,'admin');
   return (
     <div>
 

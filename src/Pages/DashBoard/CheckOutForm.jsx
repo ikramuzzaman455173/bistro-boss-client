@@ -16,7 +16,7 @@ const CheckOutForm = ({ price,cart }) => {
     if (price > 0) {
       axiosSecure.post('/payment', { price })
       .then(res => {
-        console.log('paymentData', res.data.clientSecret);
+        // console.log('paymentData', res.data.clientSecret);
         setClientSecret(res.data.clientSecret)
       })
     }
@@ -43,10 +43,10 @@ const CheckOutForm = ({ price,cart }) => {
     }
     else {
       setCardError('')
-      console.log('paymentMethod', paymentMethod);
+      // console.log('paymentMethod', paymentMethod);
     }
     setProcessing(true)
-    console.log('card', card);
+    // console.log('card', card);
     const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: card,
@@ -60,7 +60,7 @@ const CheckOutForm = ({ price,cart }) => {
     if (confirmError) {
       setCardError(confirmError)
     }
-    console.log('paymentIntent', paymentIntent);
+    // console.log('paymentIntent', paymentIntent);
     setProcessing(false)
     if (paymentIntent.status === 'succeeded') {
       setTransectionId(paymentIntent.id)
@@ -80,7 +80,7 @@ const CheckOutForm = ({ price,cart }) => {
       axiosSecure.post('/payments',{payment})
         .then(res => {
           if (res.data.insertResult.insertedId) {
-            console.log(res.data);
+            // console.log(res.data);
             toast('Pay The Payment Successfully !!!',{autoClose:2000})
           }
       })

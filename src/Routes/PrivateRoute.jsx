@@ -5,7 +5,7 @@ import LoadingSpinner from '../Pages/SharedPage/LoadingSpinner'
 
 const PrivateRoute = ({children}) => {
   const { user, loading } = useContext(AuthContext)
-  console.log(user,loading,'userloading');
+  // console.log(user,loading,'userloading');
   const location=useLocation()
   if (loading) {
     return(<LoadingSpinner/>)

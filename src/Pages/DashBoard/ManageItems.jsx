@@ -7,10 +7,10 @@ import Swal from 'sweetalert2';
 const ManageItems = () => {
   const [menu, ,refetch] = UseMenu()
   const [axiosSecure]=useAxiosSecure()
-  console.log(menu, 'menu');
+  // console.log(menu, 'menu');
 
     const handleDeleteMenuItem = (id) => {
-      console.log(`handleDeleteMenuItem`, id)
+      // console.log(`handleDeleteMenuItem`, id)
       Swal.fire({
         title: 'Are you sure?',
         text: "You won't be delete the this menu item!",

@@ -13,7 +13,7 @@ const SocialLogin = () => {
       .then((result) => {
         const logedUser=result.user
         const saveUser={name:logedUser.displayName,email:logedUser.email}
-        fetch(`https://bistro-boss-server-eight-inky.vercel.app/users`, {
+        fetch(`https://bistro-boss-server-eight-orcin.vercel.app/users`, {
             method: "POST",
             headers: {
               'content-type':'application/json'

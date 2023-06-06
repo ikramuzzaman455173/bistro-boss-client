@@ -1,7 +1,7 @@
 import React from 'react'
 import { Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis } from "recharts";
 const AdminPaymentTriangleChart = ({chartData}) => {
-  console.log('chartData', chartData);
+  // console.log('chartData', chartData);
   const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
   const getPath = (x, y, width, height) => {
     return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}

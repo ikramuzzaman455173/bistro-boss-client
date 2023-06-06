@@ -17,16 +17,16 @@ const AddItem = () => {
     })
       .then(res => res.json())
       .then(imageResponse => {
-        console.log(imageResponse);
+        // console.log(imageResponse);
         if (imageResponse.success) {
           const imgURL = imageResponse.data.display_url
           const { name, category, price, recipe } = data || {}
           const newItem={name, category, price:parseFloat(price).toFixed(2), recipe ,image:imgURL}
-          console.log(newItem, imgURL);
+          // console.log(newItem, imgURL);
           axiosSecure.post('/menu', newItem)
           .then(data => {
             if (data.data.insertedId) {
-              console.log(data.data,'menuItem');
+              // console.log(data.data,'menuItem');
               toast('New Menu Item Added Successfully!', { autoClose: 2000 })
               reset()
                   }
@@ -41,7 +41,7 @@ const AddItem = () => {
 
 
   console.log(errors);
-  console.log(imageHostingToken,'imgToken');
+  // console.log(imageHostingToken,'imgToken');
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mx-auto border-2 p-4 rounded-md border-slate-300">
