@@ -10,14 +10,9 @@ const axiosSecure = axios.create({
 const useAxiosSecure = () => {
   const {logOut}=UseAuth()
   const navigate = useNavigate();
-<<<<<<< HEAD
-
   const axiosSecure = axios.create({
     baseURL: 'https://bistro-boss-server-eight-inky.vercel.app',
   });
-
-=======
->>>>>>> user-dashboard
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
       const token = localStorage.getItem('access-token');
