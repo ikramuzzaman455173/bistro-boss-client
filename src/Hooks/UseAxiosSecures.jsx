@@ -1,10 +1,10 @@
-import {useEffect } from 'react';
 import axios from 'axios';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UseAuth from './UseAuth';
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: 'https://bistro-boss-server-eight-inky.vercel.app',
 });
 
 const useAxiosSecure = () => {
