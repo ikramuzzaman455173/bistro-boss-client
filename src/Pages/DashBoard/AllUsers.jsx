@@ -25,7 +25,7 @@ const AllUsers = () => {
       confirmButtonText: 'Yes, User Role Update It!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://bistro-boss-server-eight-orcin.vercel.app/users/admin/${id}`, {
+        fetch(`http://localhost:4000/users/admin/${id}`, {
           method: "PATCH"
         })
           .then(response => response.json())
@@ -58,7 +58,7 @@ const AllUsers = () => {
       confirmButtonText: 'Delete the user!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://bistro-boss-server-eight-orcin.vercel.app/users/${id}`, {
+        fetch(`http://localhost:4000/users/${id}`, {
           method: "DELETE"
         })
           .then(response => response.json())

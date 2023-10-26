@@ -3,7 +3,7 @@ const UseMenu = () => {
   // const [menu, setMenu] = useState([])
   // const [loading, setLoading] = useState(true)
   // useEffect(() => {
-  //   fetch('https://bistro-boss-server-eight-orcin.vercel.app/menu')
+  //   fetch('http://localhost:4000/menu')
   //     .then(response => response.json())
   //     .then(data => {
   //       // console.log(data)
@@ -18,7 +18,7 @@ const UseMenu = () => {
   const {data:menu=[],isLoading:loading,refetch} = useQuery({
     queryKey: ['menu'],
     queryFn: async () => {
-      const res = await fetch('https://bistro-boss-server-eight-orcin.vercel.app/menu')
+      const res = await fetch('http://localhost:4000/menu')
       return res.json()
     }
   })
